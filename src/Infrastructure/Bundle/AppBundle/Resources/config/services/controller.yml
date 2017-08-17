@@ -4,6 +4,6 @@ services:
         class: Infrastructure\Bundle\AppBundle\Controller\AbstractUserController
         arguments: ['@twig','@tactician.commandbus','@form.factory','@router']
 
-    app.controller.user.newUser:
+    app.controller.create:
         class: Infrastructure\Bundle\AppBundle\Controller\CreateUserController
         parent: app.controller.abstract

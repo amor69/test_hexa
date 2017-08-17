@@ -10,7 +10,7 @@
 
 user_new:
     path:     /new
-    defaults: { _controller: "AppBundle:CreateUser:newUser" }
+    defaults: { _controller: app.controller.create:createUser }
     methods:  [GET, POST]
 
 #user_edit:

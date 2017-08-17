@@ -3,6 +3,6 @@ services:
         class: Infrastructure\User\UserRepository
         public: false
 
-    app.user.command_handler.createuser:
+    app.user.command_handler.create:
       class: Application\Command\User\CreateUserCommandHandler
       arguments: ['@user.repository']

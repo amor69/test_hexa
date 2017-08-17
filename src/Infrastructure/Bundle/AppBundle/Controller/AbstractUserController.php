@@ -35,7 +35,7 @@ abstract class AbstractUserController
         $this->urlGenerator = $urlGenerator;
     }
 
-    public function newUser(Request $request, $firstname, $lastname)
+    public function createUser(Request $request, $firstname, $lastname)
     {
         $command = new CreateUserCommand($firstname, $lastname);
 
