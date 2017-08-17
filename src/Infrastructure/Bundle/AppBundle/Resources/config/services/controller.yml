@@ -1,0 +1,9 @@
+services:
+    app.controller.abstract:
+        abstract: true
+        class: Infrastructure\Bundle\AppBundle\Controller\AbstractUserController
+        arguments: ['@twig','@tactician.commandbus','@form.factory','@router']
+
+    app.controller.user.newUser:
+        class: Infrastructure\Bundle\AppBundle\Controller\CreateUserController
+        parent: app.controller.abstract

@@ -1,0 +1,8 @@
+services:
+    user.repository:
+        class: Infrastructure\User\UserRepository
+        public: false
+
+    app.user.command_handler.createuser:
+      class: Application\Command\User\CreateUserCommandHandler
+      arguments: ['@user.repository']
