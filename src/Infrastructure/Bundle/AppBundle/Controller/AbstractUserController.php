@@ -35,6 +35,11 @@ abstract class AbstractUserController
         $this->urlGenerator = $urlGenerator;
     }
 
+    public function indexAction()
+    {
+        return new Response($this->twig->render('@App/user/index.html.twig'));
+    }
+
     public function createUser(Request $request)
     {
         $firstname = "";

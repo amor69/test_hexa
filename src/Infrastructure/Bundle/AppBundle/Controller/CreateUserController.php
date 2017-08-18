@@ -8,7 +8,6 @@
 
 namespace Infrastructure\Bundle\AppBundle\Controller;
 
-
 class CreateUserController extends AbstractUserController
 {
     public static function getRoutePrefix()

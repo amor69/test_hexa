@@ -12,7 +12,6 @@ namespace Application\Command\User;
 use Domain\User\User;
 use Application\Command\CommandHandlerInterface;
 use Application\Command\CommandInterface;
-use Application\Command\User\CreateUserCommand;
 use Domain\User\UserRepositoryInterface;
 
 class CreateUserCommandHandler implements CommandHandlerInterface
