@@ -35,9 +35,12 @@ abstract class AbstractUserController
         $this->urlGenerator = $urlGenerator;
     }
 
-    public function createUser(Request $request, $firstname, $lastname)
+    public function createUser(Request $request)
     {
-        $command = new CreateUserCommand("Alex", "Pitchen");
+        $firstname = "";
+        $lastname = "";
+
+        $command = new CreateUserCommand($firstname, $lastname);
 
         $form = $this->formFactory->create(UserType::class, $command);
         $form->handleRequest($request);
@@ -48,7 +51,7 @@ abstract class AbstractUserController
             return $this->redirectRoute('user_show', ['firstname' => $firstname, 'lastname' => $lastname]);
         }
 
-        return new Response($this->twig->render('user/show.html.twig', [
+        return new Response($this->twig->render('@App/user/new.html.twig', [
             'form' => $form->createView(),
             'firstname' => $firstname,
             'lastname' => $lastname

@@ -2,6 +2,7 @@
 
 namespace Infrastructure\Bundle\AppBundle\Form;
 
+use Application\Command\User\CreateUserCommand;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -21,9 +22,7 @@ class UserType extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'Infrastructure\Bundle\AppBundle\Entity\User'
-        ));
+        $resolver->setDefault('data-class', CreateUserCommand::class);
     }
 
     /**
