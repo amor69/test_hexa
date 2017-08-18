@@ -1,2 +1,8 @@
 imports:
     - { resource: 'services/' }
+
+services:
+    app.doctrine.manager_registry_facade:
+        class: Infrastructure\Common\Doctrine\ManagerRegistryFacade
+        public: false
+        arguments: ['@doctrine']

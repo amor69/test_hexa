@@ -11,5 +11,13 @@ namespace Domain\User;
 
 interface UserRepositoryInterface
 {
-    public function create(User $user);
+    /**
+     * @param User $user
+     */
+    public function save(User $user);
+
+    /**
+     * @return mixed
+     */
+    public function findAll();
 }

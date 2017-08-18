@@ -2,7 +2,8 @@ services:
     user.repository:
         class: Infrastructure\User\UserRepository
         public: false
+        arguments: ['@app.doctrine.manager_registry_facade', 'Model:User\User']
 
     app.user.command_handler.create:
-      class: Application\Command\User\CreateUserCommandHandler
-      arguments: ['@user.repository']
+        class: Application\Command\User\CreateUserCommandHandler
+        arguments: ['@user.repository']

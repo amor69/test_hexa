@@ -11,13 +11,20 @@ namespace Infrastructure\User;
 
 use Domain\User\User;
 use Domain\User\UserRepositoryInterface;
+use Infrastructure\Common\Doctrine\ORM\Repository\AbstractORMDoctrineRepository;
 
-class UserRepository implements UserRepositoryInterface
+class UserRepository extends AbstractORMDoctrineRepository implements UserRepositoryInterface
 {
     public $users = [];
 
-    public function create(User $user)
+    public function save(User $user)
     {
-        $this->users[] = $user;
+        $this->getManager()->persist($user);
+        $this->getManager()->flush($user);
+    }
+
+    public function findAll()
+    {
+        return $this->getRepository()->findAll();
     }
 }

@@ -31,4 +31,24 @@ class CreateUserCommand implements CommandInterface
     {
         return $this->lastname;
     }
+
+    /**
+     * @param mixed $firstname
+     * @return CreateUserCommand
+     */
+    public function setFirstname($firstname)
+    {
+        $this->firstname = $firstname;
+        return $this;
+    }
+
+    /**
+     * @param mixed $lastname
+     * @return CreateUserCommand
+     */
+    public function setLastname($lastname)
+    {
+        $this->lastname = $lastname;
+        return $this;
+    }
 }

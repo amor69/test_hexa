@@ -9,6 +9,7 @@
 namespace Infrastructure\Bundle\AppBundle\Controller;
 
 
+use Application\Query\UserQueryHandler;
 use Infrastructure\Bundle\AppBundle\Form\UserType;
 use League\Tactician\CommandBus;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -37,7 +38,11 @@ abstract class AbstractUserController
 
     public function indexAction()
     {
-        return new Response($this->twig->render('@App/user/index.html.twig'));
+        $users = UserQueryHandler::class;
+
+        return new Response($this->twig->render('@App/user/index.html.twig', [
+            "users" => $users,
+        ]));
     }
 
     public function createUser(Request $request)
