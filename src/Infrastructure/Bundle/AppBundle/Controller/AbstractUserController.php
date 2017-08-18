@@ -37,7 +37,7 @@ abstract class AbstractUserController
 
     public function createUser(Request $request, $firstname, $lastname)
     {
-        $command = new CreateUserCommand($firstname, $lastname);
+        $command = new CreateUserCommand("Alex", "Pitchen");
 
         $form = $this->formFactory->create(UserType::class, $command);
         $form->handleRequest($request);
