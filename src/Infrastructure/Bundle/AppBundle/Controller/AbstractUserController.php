@@ -36,9 +36,7 @@ abstract class AbstractUserController
 
     public function indexAction()
     {
-        $users = new UserQuery(User::class);
-
-        $this->commandBus->handle($users);
+        $users = $this->commandBus->handle(new UserQuery());
 
         return new Response($this->twig->render('@App/user/index.html.twig', [
             "users" => $users,

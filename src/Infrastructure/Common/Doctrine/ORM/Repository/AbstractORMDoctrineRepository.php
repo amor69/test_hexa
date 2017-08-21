@@ -8,6 +8,7 @@
 
 namespace Infrastructure\Common\Doctrine\ORM\Repository;
 
+use Domain\User\User;
 use Infrastructure\Common\Doctrine\ManagerRegistryFacade;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityRepository;
