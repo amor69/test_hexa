@@ -9,3 +9,9 @@ services:
         arguments: ['@user.repository']
         tags:
             - { name: tactician.handler, command: Application\Command\User\CreateUserCommand }
+
+    app.user.query_handler.user:
+        class: Application\Query\UserQueryHandler
+        arguments: ['@user.repository']
+        tags:
+            - { name: tactician.handler, command: Application\Query\UserQuery }

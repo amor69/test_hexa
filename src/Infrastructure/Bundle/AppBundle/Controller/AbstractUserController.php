@@ -8,14 +8,12 @@
 
 namespace Infrastructure\Bundle\AppBundle\Controller;
 
-
-use Application\Query\UserQueryHandler;
+use Application\Query\UserQuery;
+use Domain\User\User;
 use Infrastructure\Bundle\AppBundle\Form\UserType;
 use League\Tactician\CommandBus;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Form\FormError;
-use Symfony\Component\Form\Exception\TransformationFailedException;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -38,7 +36,9 @@ abstract class AbstractUserController
 
     public function indexAction()
     {
-        $users = UserQueryHandler::class;
+        $users = new UserQuery(User::class);
+
+        $this->commandBus->handle($users);
 
         return new Response($this->twig->render('@App/user/index.html.twig', [
             "users" => $users,
@@ -58,7 +58,7 @@ abstract class AbstractUserController
         if($form->isValid()) {
             $this->commandBus->handle($command);
 
-            return $this->redirectRoute('user_show', ['firstname' => $firstname, 'lastname' => $lastname]);
+            return $this->redirectRoute('user_index', ['firstname' => $firstname, 'lastname' => $lastname]);
         }
 
         return new Response($this->twig->render('@App/user/new.html.twig', [
@@ -73,7 +73,7 @@ abstract class AbstractUserController
     private function redirectRoute($name, array $params, $type = UrlGeneratorInterface::ABSOLUTE_PATH)
     {
         return new RedirectResponse(
-            $this->urlGenerator->generate(sprintf('%s.%s', $this->getRoutePrefix(), $name), $params, $type)
+            $this->urlGenerator->generate(sprintf('%s%s', $this->getRoutePrefix(), $name), $params, $type)
         );
     }
 }

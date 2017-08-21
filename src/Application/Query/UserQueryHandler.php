@@ -29,8 +29,9 @@ class UserQueryHandler
 
     public function handle(UserQuery $query)
     {
-        // vérifier le bon type de query
-
+        if(!$query instanceof UserQuery) {
+            throw new \Exception("UserQueryHandler can only handle UserQuery");
+        }
         return $this->userRepository->findAll();
     }
 }

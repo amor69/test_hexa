@@ -8,10 +8,9 @@
 
 namespace Infrastructure\Common\Doctrine\ORM\Repository;
 
-
+use Infrastructure\Common\Doctrine\ManagerRegistryFacade;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityRepository;
-use Infrastructure\Common\Doctrine\ManagerRegistryFacade;
 
 abstract class AbstractORMDoctrineRepository
 {

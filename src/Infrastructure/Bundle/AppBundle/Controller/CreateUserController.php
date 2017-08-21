@@ -12,6 +12,5 @@ class CreateUserController extends AbstractUserController
 {
     public static function getRoutePrefix()
     {
-        return 'app.user.create';
     }
 }

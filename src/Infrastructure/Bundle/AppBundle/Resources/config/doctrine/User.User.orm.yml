@@ -1,7 +1,6 @@
 Domain\User\User:
     type: entity
     table: user
-    repositoryClass: Infrastructure\Bundle\AppBundle\Repository\UserRepository
     id:
         id:
             type: integer
