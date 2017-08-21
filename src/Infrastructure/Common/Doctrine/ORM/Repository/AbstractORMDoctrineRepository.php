@@ -32,8 +32,8 @@ abstract class AbstractORMDoctrineRepository
      */
     public function __construct(ManagerRegistryFacade $registryFacade, $modelClass)
     {
-        $this->registryFacade = $registryFacade;
         $this->modelClass = $modelClass;
+        $this->registryFacade = $registryFacade;
     }
 
     public function findAll()

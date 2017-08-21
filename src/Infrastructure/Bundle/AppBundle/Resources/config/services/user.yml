@@ -7,3 +7,5 @@ services:
     app.user.command_handler.create:
         class: Application\Command\User\CreateUserCommandHandler
         arguments: ['@user.repository']
+        tags:
+            - { name: tactician.handler, command: Application\Command\User\CreateUserCommand }

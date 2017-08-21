@@ -15,8 +15,6 @@ use Infrastructure\Common\Doctrine\ORM\Repository\AbstractORMDoctrineRepository;
 
 class UserRepository extends AbstractORMDoctrineRepository implements UserRepositoryInterface
 {
-    public $users = [];
-
     public function save(User $user)
     {
         $this->getManager()->persist($user);

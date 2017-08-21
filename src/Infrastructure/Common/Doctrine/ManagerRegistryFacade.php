@@ -31,16 +31,16 @@ class ManagerRegistryFacade
     }
 
     /**
-     * @param string|null $name Default Manager if null
+     * @param string|null $name Default manager if null
      *
      * @return ObjectManager
      */
-    public function getManager($name =null)
+    public function getManager($name = null)
     {
         $manager = $this->registry->getManager($name);
 
         //Reset Manager if closed
-        if ($manager instanceof  EntityManagerInterface && !$manager->isOpen()) {
+        if ($manager instanceof EntityManagerInterface && !$manager->isOpen()) {
             $this->registry->resetManager($name);
             $manager = $this->registry->getManager($name);
         }
@@ -51,7 +51,7 @@ class ManagerRegistryFacade
     /**
      * @param string $modelClass
      *
-     * @return \Doctrine\Common\Persistence\ObjectManager
+     * @return ObjectManager
      */
     public function getManagerForClass($modelClass)
     {

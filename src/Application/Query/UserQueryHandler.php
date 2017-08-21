@@ -29,6 +29,8 @@ class UserQueryHandler
 
     public function handle(UserQuery $query)
     {
+        // vérifier le bon type de query
+
         return $this->userRepository->findAll();
     }
 }

@@ -30,10 +30,10 @@ class CreateUserCommandHandler implements CommandHandlerInterface
         }
 
         $user = new User;
-        $user->id = uniqid();
+        $user->id = uniqid(); // Sort de l'aléatoire = collision avec user.orm.yml
         $user->firstname = $command->getFirstname();
         $user->lastname = $command->getLastname();
 
-        $this->userRepository->create($user);
+        $this->userRepository->save($user);
     }
 }
