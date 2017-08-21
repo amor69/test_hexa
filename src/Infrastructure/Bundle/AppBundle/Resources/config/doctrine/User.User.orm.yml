@@ -1,6 +1,6 @@
-Infrastructure\Bundle\AppBundle\Entity\User:
+Domain\User\User:
     type: entity
-    table: null
+    table: user
     repositoryClass: Infrastructure\Bundle\AppBundle\Repository\UserRepository
     id:
         id:

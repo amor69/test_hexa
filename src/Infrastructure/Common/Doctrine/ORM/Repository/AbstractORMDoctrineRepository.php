@@ -41,12 +41,12 @@ abstract class AbstractORMDoctrineRepository
         return $this->getRepository()->findAll();
     }
 
-    public function getRepository() : EntityRepository
+    protected function getRepository() : EntityRepository
     {
         return $this->getManager()->getRepository($this->modelClass);
     }
 
-    public function getManager() : EntityManager
+    protected function getManager() : EntityManager
     {
         /**
          * @var EntityManager $manager
