@@ -2,10 +2,9 @@
 
 namespace Infrastructure\Bundle\AppBundle\Controller;
 
-class DeleteController extends AbstractUserController
+class EditController extends AbstractUserController
 {
     public static function getRoutePrefix()
     {
-
     }
 }

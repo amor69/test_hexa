@@ -13,12 +13,12 @@ user_new:
     defaults: { _controller: app.controller.create:createUser }
     methods:  [GET, POST]
 
-#user_edit:
-#    path:     /{id}/edit
-#    defaults: { _controller: "AppBundle:User:edit" }
-#    methods:  [GET, POST]
-#
+user_edit:
+    path:     /{id}/edit
+    defaults: { _controller: app.controller.edit:editUser }
+    methods:  [GET, POST]
+
 user_delete:
     path:     /{id}/delete
-    defaults: { _controller: app.controller.create:deleteAction }
-    methods:  [GET, POST]
+    defaults: { _controller: app.controller.delete:deleteAction }
+    methods:  GET

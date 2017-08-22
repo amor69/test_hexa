@@ -26,6 +26,11 @@ class UserRepository extends AbstractORMDoctrineRepository implements UserReposi
         return $this->getRepository()->findOneBy(['id' => $id]);
     }
 
+    public function edit(User $user)
+    {
+        $this->getManager()->flush();
+    }
+
     public function remove(User $user)
     {
         $this->getManager()->remove($user);
