@@ -9,3 +9,4 @@ class HomeUserController extends AbstractUserController
         return 'app.user.home';
     }
 }
+

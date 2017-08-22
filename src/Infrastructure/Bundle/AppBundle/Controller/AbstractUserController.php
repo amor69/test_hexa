@@ -74,8 +74,8 @@ abstract class AbstractUserController
         $users = $this->commandBus->handle(new UserQuery());
 
         $userId = $request->get('id');
-        $firstname = $request->get('firstname');
-        $lastname = $request->get('lastname');
+        $firstname = "";
+        $lastname = "";
 
         $command = new EditUserCommand($userId, $firstname, $lastname);
 
@@ -86,7 +86,7 @@ abstract class AbstractUserController
             $this->commandBus->handle($command);
 
             return $this->redirectRoute('user_index', [
-                'users' => $users
+                'users' => $users,
             ]);
         }
 
@@ -97,13 +97,20 @@ abstract class AbstractUserController
 
     public function deleteAction(Request $request)
     {
+        $users = $this->commandBus->handle(new UserQuery());
+
         $userId = $request->get('id');
 
         $command = new DeleteUserCommand($userId);
         $this->commandBus->handle($command);
 
-        return new Response($this->twig->render('@App/user/index.html.twig'));
+       // return new Response($this->twig->render('@App/user/index.html.twig'));
+        return $this->redirectRoute('user_index', [
+            'users' => $users,
+        ]);
+
     }
+
 
     abstract protected static function getRoutePrefix();
 
