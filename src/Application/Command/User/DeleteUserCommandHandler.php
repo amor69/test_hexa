@@ -28,10 +28,8 @@ class DeleteUserCommandHandler implements CommandHandlerInterface
             throw new \Exception("DeleteUserHandler can only handle DeleteUserCommand");
         }
 
-        $user = $this->userRepository->findOneById(['id' => $command->getUserId()]);
+        $userId = $this->userRepository->findOneById(['id' => $command->getUserId()]);
 
-        $this->userRepository->remove($user);
+        $this->userRepository->remove($userId);
     }
-
-
 }

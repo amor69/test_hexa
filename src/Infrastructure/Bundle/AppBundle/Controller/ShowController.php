@@ -2,12 +2,9 @@
 
 namespace Infrastructure\Bundle\AppBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
-class DeleteController extends Controller
+class ShowController extends AbstractUserController
 {
     public static function getRoutePrefix()
     {
-
     }
 }

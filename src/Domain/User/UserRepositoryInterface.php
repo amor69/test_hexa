@@ -18,7 +18,11 @@ interface UserRepositoryInterface
 
     /**
      * @param User $user
-     * @return mixed
+     */
+    public function show($id);
+
+    /**
+     * @param User $user
      */
     public function remove(User $user);
 
