@@ -3,10 +3,10 @@ user_index:
     defaults: { _controller: app.controller.home:indexAction }
     methods:  GET
 
-#user_show:
-#    path:     /{id}/show
-#    defaults: { _controller: "AppBundle:User:show" }
-#    methods:  GET
+user_show:
+    path:     /{id}/show
+    defaults: { _controller: app.controller.show:showAction }
+    methods:  GET
 
 user_new:
     path:     /new

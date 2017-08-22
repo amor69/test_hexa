@@ -10,6 +10,7 @@ namespace Infrastructure\Bundle\AppBundle\Controller;
 
 use Application\Command\User\DeleteUserCommand;
 use Application\Command\User\EditUserCommand;
+use Application\Query\ShowUserQuery;
 use Application\Query\UserQuery;
 use Domain\User\User;
 use Infrastructure\Bundle\AppBundle\Form\UserType;
@@ -68,6 +69,15 @@ abstract class AbstractUserController
         ]));
     }
 
+    public function showAction(Request $request)
+    {
+        $user = $this->commandBus->handle(new ShowUserQuery($request->get('id')));
+
+        return new Response($this->twig->render('@App/user/show.html.twig', [
+            'user' => $user,
+        ]));
+    }
+
     public function editUser(Request $request)
     {
 
@@ -97,20 +107,17 @@ abstract class AbstractUserController
 
     public function deleteAction(Request $request)
     {
-        $users = $this->commandBus->handle(new UserQuery());
-
         $userId = $request->get('id');
+
+        $users = $this->commandBus->handle(new UserQuery());
 
         $command = new DeleteUserCommand($userId);
         $this->commandBus->handle($command);
 
-       // return new Response($this->twig->render('@App/user/index.html.twig'));
         return $this->redirectRoute('user_index', [
-            'users' => $users,
+            'users' => $users
         ]);
-
     }
-
 
     abstract protected static function getRoutePrefix();
 

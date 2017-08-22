@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: Alex
- * Date: 18/08/2017
- * Time: 15:33
+ * Date: 22/08/2017
+ * Time: 11:45
  */
 
 namespace Application\Query;
@@ -11,15 +11,15 @@ namespace Application\Query;
 
 use Domain\User\UserRepositoryInterface;
 
-class UserQueryHandler
+class ShowUserQueryHandler
 {
     /**
-     * @var UserRepositoryInterface
+     * @var
      */
     private $userRepository;
 
     /**
-     * UserQueryHandler constructor.
+     * ShowUserQueryHandler constructor.
      * @param UserRepositoryInterface $userRepository
      */
     public function __construct(UserRepositoryInterface $userRepository)
@@ -27,11 +27,12 @@ class UserQueryHandler
         $this->userRepository = $userRepository;
     }
 
-    public function handle(UserQuery $query)
+    public function handle(ShowUserQuery $query)
     {
-        if (!$query instanceof UserQuery) {
-            throw new \Exception("UserQueryHandler can only handle UserQuery");
+        if (!$query instanceof ShowUserQuery) {
+            throw new \Exception("ShowUserQueryHandler can only handle ShowUserQuery");
         }
-        return $this->userRepository->findAll();
+
+        return $this->userRepository->findOneById($query->getUserId());
     }
 }
