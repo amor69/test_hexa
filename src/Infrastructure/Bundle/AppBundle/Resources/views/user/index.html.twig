@@ -16,8 +16,10 @@
         {% for user in users %}
             <tr>
                 {#<td><a href="{{ path('user_show', { 'id': user.id }) }}">{{ user.id }}</a></td>#}
+                <td>{{ user.id }}</td>
                 <td>{{ user.firstname }}</td>
                 <td>{{ user.lastname }}</td>
+                <td><a href="{{ path('user_delete', { 'id': user.id }) }}">Supprimer</a></td>
                 {#<td>
                     <ul>
                         <li>

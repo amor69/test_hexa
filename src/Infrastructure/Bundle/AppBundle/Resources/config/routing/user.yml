@@ -18,7 +18,7 @@ user_new:
 #    defaults: { _controller: "AppBundle:User:edit" }
 #    methods:  [GET, POST]
 #
-#user_delete:
-#    path:     /{id}/delete
-#    defaults: { _controller: "AppBundle:User:delete" }
-#    methods:  DELETE
+user_delete:
+    path:     /{id}/delete
+    defaults: { _controller: app.controller.create:deleteAction }
+    methods:  GET

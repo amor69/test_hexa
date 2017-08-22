@@ -36,6 +36,11 @@ abstract class AbstractORMDoctrineRepository
         $this->registryFacade = $registryFacade;
     }
 
+    public function find($id)
+    {
+        return $this->getRepository()->find($id);
+    }
+
     public function findAll()
     {
         return $this->getRepository()->findAll();
