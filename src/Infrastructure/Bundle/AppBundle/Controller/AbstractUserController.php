@@ -9,6 +9,7 @@
 namespace Infrastructure\Bundle\AppBundle\Controller;
 
 use Application\Command\User\DeleteUserCommand;
+use Application\Command\User\EditUserCommand;
 use Application\Query\UserQuery;
 use Domain\User\User;
 use Infrastructure\Bundle\AppBundle\Form\UserType;
@@ -64,6 +65,33 @@ abstract class AbstractUserController
             'form' => $form->createView(),
             'firstname' => $firstname,
             'lastname' => $lastname
+        ]));
+    }
+
+    public function editUser(Request $request)
+    {
+
+        $users = $this->commandBus->handle(new UserQuery());
+
+        $userId = $request->get('id');
+        $firstname = $request->get('firstname');
+        $lastname = $request->get('lastname');
+
+        $command = new EditUserCommand($userId, $firstname, $lastname);
+
+        $form = $this->formFactory->create(UserType::class, $command);
+        $form->handleRequest($request);
+
+        if($form->isValid()) {
+            $this->commandBus->handle($command);
+
+            return $this->redirectRoute('user_index', [
+                'users' => $users
+            ]);
+        }
+
+        return new Response($this->twig->render('@App/user/edit.html.twig', [
+            'edit_form' => $form->createView(),
         ]));
     }
 

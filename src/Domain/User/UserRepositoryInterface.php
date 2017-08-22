@@ -32,4 +32,10 @@ interface UserRepositoryInterface
      * @return mixed
      */
     public function findAll();
+
+    /**
+     * @param User $user
+     * @return mixed
+     */
+    public function edit(User $user);
 }

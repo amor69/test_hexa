@@ -10,6 +10,12 @@ services:
         tags:
             - { name: tactician.handler, command: Application\Command\User\CreateUserCommand }
 
+    app.user.command_handler.edit:
+        class: Application\Command\User\EditUserCommandHandler
+        arguments: ['@user.repository']
+        tags:
+            - { name: tactician.handler, command: Application\Command\User\EditUserCommand }
+
     app.user.command_handler.remove:
         class: Application\Command\User\DeleteUserCommandHandler
         arguments: ['@user.repository']
