@@ -11,3 +11,11 @@ services:
     app.controller.create:
         class: Infrastructure\Bundle\AppBundle\Controller\CreateUserController
         parent: app.controller.abstract
+
+    app.controller.show:
+        class: Infrastructure\Bundle\AppBundle\Controller\ShowController
+        parent: app.controller.abstract
+
+    app.controller.delete:
+        class: Infrastructure\Bundle\AppBundle\Controller\DeleteController
+        parent: app.controller.abstract
