@@ -87,9 +87,10 @@ abstract class AbstractUserController
 
         $userId = $request->get('id');
 
-        $user1 =
+        $firstname = $user->getFirstname();
+        $lastname = $user->getLastname();
 
-        $command = new EditUserCommand($userId);
+        $command = new EditUserCommand($userId, $firstname, $lastname);
 
         $form = $this->formFactory->create(UserType::class, $command);
         $form->handleRequest($request);
