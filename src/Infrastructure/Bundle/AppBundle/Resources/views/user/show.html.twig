@@ -1,29 +1,31 @@
 {% extends '@App/base.html.twig' %}
 
 {% block body %}
-    <h1>User</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1>User</h1>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-8 text-right">
+                <a class="btn btn-primary" href="{{ path('user_index') }}">Back to the list</a>
+            </div>
+        </div>
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ user.id }}</td>
-            </tr>
-            <tr>
-                <th>Firstname</th>
-                <td>{{ user.firstname }}</td>
-            </tr>
-            <tr>
-                <th>Lastname</th>
-                <td>{{ user.lastname }}</td>
-            </tr>
-        </tbody>
-    </table>
-    <p><a href="{{ path('user_delete', { 'id': user.id }) }}">Supprimer</a></p>
-
-    <ul>
-        <li>
-            <a href="{{ path('user_index') }}">Back to the list</a>
-        </li>
-    </ul>
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h4 class="card-title">ID : {{ user.id }}</h4>
+                        <p class="card-text">
+                            Nom : {{ user.lastname }}<br>
+                            Prénom : {{ user.firstname }}
+                        </p>
+                        <a class="btn btn-danger" href="{{ path('user_delete', { 'id': user.id }) }}">Supprimer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
