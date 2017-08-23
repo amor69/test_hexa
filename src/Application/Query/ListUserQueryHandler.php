@@ -11,7 +11,7 @@ namespace Application\Query;
 
 use Domain\User\UserRepositoryInterface;
 
-class UserQueryHandler
+class ListUserQueryHandler
 {
     /**
      * @var UserRepositoryInterface
@@ -19,7 +19,7 @@ class UserQueryHandler
     private $userRepository;
 
     /**
-     * UserQueryHandler constructor.
+     * ListUserQueryHandler constructor.
      * @param UserRepositoryInterface $userRepository
      */
     public function __construct(UserRepositoryInterface $userRepository)
@@ -27,10 +27,10 @@ class UserQueryHandler
         $this->userRepository = $userRepository;
     }
 
-    public function handle(UserQuery $query)
+    public function handle(ListUserQuery $query)
     {
-        if (!$query instanceof UserQuery) {
-            throw new \Exception("UserQueryHandler can only handle UserQuery");
+        if (!$query instanceof ListUserQuery) {
+            throw new \Exception("ListUserQueryHandler can only handle ListUserQuery");
         }
         return $this->userRepository->findAll();
     }

@@ -23,10 +23,10 @@ services:
             - { name: tactician.handler, command: Application\Command\User\DeleteUserCommand }
 
     app.user.query_handler.create:
-        class: Application\Query\UserQueryHandler
+        class: Application\Query\ListUserQueryHandler
         arguments: ['@user.repository']
         tags:
-            - { name: tactician.handler, command: Application\Query\UserQuery }
+            - { name: tactician.handler, command: Application\Query\ListUserQuery }
 
     app.user.query_handler.show:
         class: Application\Query\ShowUserQueryHandler

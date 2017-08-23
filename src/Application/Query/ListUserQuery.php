@@ -9,7 +9,7 @@
 namespace Application\Query;
 
 
-class UserQuery
+class ListUserQuery
 {
 
 }
