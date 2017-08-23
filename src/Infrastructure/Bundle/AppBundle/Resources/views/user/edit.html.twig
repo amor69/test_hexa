@@ -5,9 +5,11 @@
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
+    {{ form_row(edit_form.firstname) }}
+    {{ form_row(edit_form.lastname) }}
         <input type="submit" value="Edit" />
     {{ form_end(edit_form) }}
-
+    {{ dump(user) }}
     <ul>
         <li>
             <a href="{{ path('user_index') }}">Back to the list</a>

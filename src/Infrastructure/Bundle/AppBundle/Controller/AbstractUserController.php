@@ -83,11 +83,13 @@ abstract class AbstractUserController
 
         $users = $this->commandBus->handle(new UserQuery());
 
-        $userId = $request->get('id');
-        $firstname = "";
-        $lastname = "";
+        $user = $this->commandBus->handle(new ShowUserQuery($request->get('id')));
 
-        $command = new EditUserCommand($userId, $firstname, $lastname);
+        $userId = $request->get('id');
+
+        $user1 =
+
+        $command = new EditUserCommand($userId);
 
         $form = $this->formFactory->create(UserType::class, $command);
         $form->handleRequest($request);
@@ -102,6 +104,7 @@ abstract class AbstractUserController
 
         return new Response($this->twig->render('@App/user/edit.html.twig', [
             'edit_form' => $form->createView(),
+            'user' => $user,
         ]));
     }
 
