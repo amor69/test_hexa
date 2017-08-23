@@ -14,4 +14,20 @@ class User
     public $id;
     public $firstname;
     public $lastname;
+
+    /**
+     * @return mixed
+     */
+    public function getFirstname()
+    {
+        return $this->firstname;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLastname()
+    {
+        return $this->lastname;
+    }
 }
