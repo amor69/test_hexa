@@ -1,16 +1,27 @@
 {% extends '@App/base.html.twig' %}
 
 {% block body %}
-    <h1>User creation</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1>Create a new User</h1>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-8 text-right">
+                <a class="btn btn-primary" href="{{ path('user_index') }}">Back to the list</a>
+            </div>
+        </div>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('user_index') }}">Back to the list</a>
-        </li>
-    </ul>
+        <div class="row justify-content-center">
+            <div class="col-6">
+                {{ form_start(form) }}
+                {{ form_widget(form) }}
+                <div class="col-12 text-center">
+                    <button type="submit" class="btn btn-outline-success">Create</button>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
 {% endblock %}
