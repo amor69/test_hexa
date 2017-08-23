@@ -20,6 +20,9 @@ class EditUserCommand implements CommandInterface
     public function __construct($userId, $firstname, $lastname)
     {
         $this->userId = $userId;
+        $this->firstname = $firstname;
+        $this->lastname = $lastname;
+
     }
 
     public function getUserId()
