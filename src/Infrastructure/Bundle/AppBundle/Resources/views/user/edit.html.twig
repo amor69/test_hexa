@@ -1,16 +1,27 @@
 {% extends '@App/base.html.twig' %}
 
 {% block body %}
-    <h1>User edit</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1>Edit User</h1>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-8 text-right">
+                <a class="btn btn-primary" href="{{ path('user_index') }}">Back to the list</a>
+            </div>
+        </div>
 
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('user_index') }}">Back to the list</a>
-        </li>
-    </ul>
+        <div class="row justify-content-center">
+            <div class="col-6">
+                {{ form_start(edit_form) }}
+                {{ form_widget(edit_form) }}
+                <div class="col-12 text-center">
+                    <button type="submit" class="btn btn-outline-success">Edit</button>
+                </div>
+                {{ form_end(edit_form) }}
+            </div>
+        </div>
+    </div>
 {% endblock %}
