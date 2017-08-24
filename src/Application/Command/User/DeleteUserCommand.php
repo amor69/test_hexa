@@ -8,10 +8,7 @@
 
 namespace Application\Command\User;
 
-
-use Application\Command\CommandInterface;
-
-class DeleteUserCommand implements CommandInterface
+class DeleteUserCommand
 {
     private $userId;
 

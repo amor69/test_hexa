@@ -8,7 +8,6 @@
 
 namespace Application\Command\User;
 
-use Application\Command\CommandInterface;
 use Domain\User\UserRepositoryInterface;
 
 class EditUserCommandHandler
@@ -20,11 +19,10 @@ class EditUserCommandHandler
         $this->userRepository = $userRepository;
     }
 
-    public function handle(CommandInterface $command)
+    public function handle($command)
     {
          if(!$command instanceof EditUserCommand) {
              throw new \Exception("Edit can only handle EditUserCommand");
-
          }
 
          $user = $this->userRepository->findOneById(['id' => $command->getUserId()]);

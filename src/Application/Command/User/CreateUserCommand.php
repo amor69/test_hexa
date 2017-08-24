@@ -8,10 +8,7 @@
 
 namespace Application\Command\User;
 
-
-use Application\Command\CommandInterface;
-
-class CreateUserCommand implements CommandInterface
+class CreateUserCommand
 {
     private $firstname;
     private $lastname;

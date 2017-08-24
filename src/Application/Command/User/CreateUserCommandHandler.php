@@ -9,7 +9,6 @@
 namespace Application\Command\User;
 
 use Domain\User\User;
-use Application\Command\CommandInterface;
 use Domain\User\UserRepositoryInterface;
 
 class CreateUserCommandHandler
@@ -21,7 +20,7 @@ class CreateUserCommandHandler
         $this->userRepository = $userRepository;
     }
 
-    public function handle(CommandInterface $command)
+    public function handle($command)
     {
         if(!$command instanceof CreateUserCommand) {
             throw new \Exception("CreateUserHandle can only handle CreateUserCommand");
