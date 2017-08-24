@@ -42,8 +42,4 @@ class EditController extends AbstractUserController
             'user' => $user,
         ]));
     }
-
-    public static function getRoutePrefix()
-    {
-    }
 }

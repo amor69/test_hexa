@@ -8,10 +8,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class DeleteController extends AbstractUserController
 {
-    public static function getRoutePrefix()
-    {
-    }
-
     public function deleteAction(Request $request)
     {
         $userId = $request->get('id');

@@ -28,12 +28,11 @@ abstract class AbstractUserController
         $this->urlGenerator = $urlGenerator;
     }
 
-    abstract protected static function getRoutePrefix();
 
-    protected function redirectRoute($name, array $params, $type = UrlGeneratorInterface::ABSOLUTE_PATH)
+    protected function redirectRoute($type = UrlGeneratorInterface::ABSOLUTE_PATH)
     {
         return new RedirectResponse(
-            $this->urlGenerator->generate(sprintf('%s%s', $this->getRoutePrefix(), $name), $params, $type)
+            $this->urlGenerator->generate($type)
         );
     }
 }

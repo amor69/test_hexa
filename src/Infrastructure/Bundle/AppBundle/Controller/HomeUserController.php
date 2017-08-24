@@ -16,9 +16,4 @@ class HomeUserController extends AbstractUserController
             "users" => $users,
         ]));
     }
-
-    public static function getRoutePrefix()
-    {
-    }
 }
-

@@ -16,8 +16,4 @@ class ShowController extends AbstractUserController
             'user' => $user,
         ]));
     }
-
-    public static function getRoutePrefix()
-    {
-    }
 }

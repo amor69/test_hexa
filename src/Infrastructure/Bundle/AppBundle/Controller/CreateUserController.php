@@ -15,10 +15,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 class CreateUserController extends AbstractUserController
 {
-    public static function getRoutePrefix()
-    {
-    }
-
     public function createUser(Request $request)
     {
         $firstname = "";
@@ -32,7 +28,7 @@ class CreateUserController extends AbstractUserController
         if($form->isValid()) {
             $this->commandBus->handle($command);
 
-            return $this->redirectRoute('user_index', ['firstname' => $firstname, 'lastname' => $lastname]);
+            return $this->redirectRoute('user_index');
         }
 
         return new Response($this->twig->render('@App/user/new.html.twig', [
