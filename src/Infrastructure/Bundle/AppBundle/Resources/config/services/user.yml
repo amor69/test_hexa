@@ -1,6 +1,6 @@
 services:
     user.repository:
-        class: Infrastructure\User\UserRepository
+        class: Infrastructure\UserRepository\UserRepository
         public: false
         arguments: ['@app.doctrine.manager_registry_facade', 'Model:User\User']
 

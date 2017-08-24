@@ -6,7 +6,7 @@
  * Time: 09:23
  */
 
-namespace Infrastructure\User;
+namespace Infrastructure\UserRepository;
 
 
 use Domain\User\User;
