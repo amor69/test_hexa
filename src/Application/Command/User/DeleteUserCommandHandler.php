@@ -8,12 +8,10 @@
 
 namespace Application\Command\User;
 
-
-use Application\Command\CommandHandlerInterface;
 use Application\Command\CommandInterface;
 use Domain\User\UserRepositoryInterface;
 
-class DeleteUserCommandHandler implements CommandHandlerInterface
+class DeleteUserCommandHandler
 {
     private $userRepository;
 
