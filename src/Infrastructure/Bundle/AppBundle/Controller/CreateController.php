@@ -13,9 +13,9 @@ use Infrastructure\Bundle\AppBundle\Form\UserType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class CreateUserController extends AbstractUserController
+class CreateController extends AbstractUserController
 {
-    public function createUser(Request $request)
+    public function createAction(Request $request)
     {
         $firstname = "";
         $lastname = "";

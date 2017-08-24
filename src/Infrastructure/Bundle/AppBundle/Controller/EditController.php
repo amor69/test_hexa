@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 class EditController extends AbstractUserController
 {
 
-    public function editUser(Request $request)
+    public function editAction(Request $request)
     {
         $user = $this->commandBus->handle(new ShowUserQuery($request->get('id')));
 

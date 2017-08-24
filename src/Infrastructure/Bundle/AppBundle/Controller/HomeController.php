@@ -5,7 +5,7 @@ namespace Infrastructure\Bundle\AppBundle\Controller;
 use Application\Query\ListUserQuery;
 use Symfony\Component\HttpFoundation\Response;
 
-class HomeUserController extends AbstractUserController
+class HomeController extends AbstractUserController
 {
 
     public function indexAction()

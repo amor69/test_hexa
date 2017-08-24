@@ -5,11 +5,11 @@ services:
         arguments: ['@twig','@tactician.commandbus','@form.factory','@router']
 
     app.controller.home:
-        class: Infrastructure\Bundle\AppBundle\Controller\HomeUserController
+        class: Infrastructure\Bundle\AppBundle\Controller\HomeController
         parent: app.controller.abstract
 
     app.controller.create:
-        class: Infrastructure\Bundle\AppBundle\Controller\CreateUserController
+        class: Infrastructure\Bundle\AppBundle\Controller\CreateController
         parent: app.controller.abstract
 
     app.controller.edit:
