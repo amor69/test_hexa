@@ -8,13 +8,11 @@
 
 namespace Application\Command\User;
 
-
 use Domain\User\User;
-use Application\Command\CommandHandlerInterface;
 use Application\Command\CommandInterface;
 use Domain\User\UserRepositoryInterface;
 
-class CreateUserCommandHandler implements CommandHandlerInterface
+class CreateUserCommandHandler
 {
     private  $userRepository;
 
