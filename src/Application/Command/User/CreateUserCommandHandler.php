@@ -27,7 +27,6 @@ class CreateUserCommandHandler
         }
 
         $user = new User;
-        $user->id = uniqid(); // Sort de l'aléatoire = collision avec user.orm.yml
         $user->firstname = $command->getFirstname();
         $user->lastname = $command->getLastname();
 

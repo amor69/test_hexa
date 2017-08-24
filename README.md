@@ -22,7 +22,7 @@ and execute these commands.
 
 `php bin/console doctrine:database:create`
 
-`php bin/console server:start`
+`php bin/console server:start 127.0.0.1:8000`
 
 Then in your web browser go on `localhost:8000/user`
 
