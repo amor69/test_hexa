@@ -8,10 +8,7 @@
 
 namespace Application\Command\User;
 
-
-use Application\Command\CommandInterface;
-
-class EditUserCommand implements CommandInterface
+class EditUserCommand
 {
     private $userId;
     private $firstname;

@@ -7,8 +7,6 @@
  */
 
 namespace Application\Command\User;
-
-use Application\Command\CommandInterface;
 use Domain\User\UserRepositoryInterface;
 
 class DeleteUserCommandHandler
@@ -20,7 +18,7 @@ class DeleteUserCommandHandler
         $this->userRepository = $userRepository;
     }
 
-    public function handle(CommandInterface $command)
+    public function handle($command)
     {
         if(!$command instanceof DeleteUserCommand) {
             throw new \Exception("DeleteUserHandler can only handle DeleteUserCommand");
