@@ -18,7 +18,6 @@ class DeleteController extends AbstractUserController
         $this->commandBus->handle($command);
 
         return $this->redirectRoute('user_index', [
-            'users' => $users
-        ]);
+            'users' => $user);
     }
 }
