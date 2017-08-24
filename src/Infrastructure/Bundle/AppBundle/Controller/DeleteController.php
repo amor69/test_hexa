@@ -12,12 +12,9 @@ class DeleteController extends AbstractUserController
     {
         $userId = $request->get('id');
 
-        $users = $this->commandBus->handle(new ListUserQuery());
-
         $command = new DeleteUserCommand($userId);
         $this->commandBus->handle($command);
 
-        return $this->redirectRoute('user_index', [
-            'users' => $user);
+        return $this->redirectRoute('user_index');
     }
 }

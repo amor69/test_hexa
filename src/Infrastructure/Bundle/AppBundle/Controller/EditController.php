@@ -14,9 +14,6 @@ class EditController extends AbstractUserController
 
     public function editUser(Request $request)
     {
-
-        $users = $this->commandBus->handle(new ListUserQuery());
-
         $user = $this->commandBus->handle(new ShowUserQuery($request->get('id')));
 
         $userId = $request->get('id');
@@ -32,9 +29,7 @@ class EditController extends AbstractUserController
         if($form->isValid()) {
             $this->commandBus->handle($command);
 
-            return $this->redirectRoute('user_index', [
-                'users' => $users,
-            ]);
+            return $this->redirectRoute('user_index');
         }
 
         return new Response($this->twig->render('@App/user/edit.html.twig', [
