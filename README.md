@@ -17,10 +17,11 @@ This will load everything you need to run this project (symfony, doctrine, tacti
 Launch the website
 ------
 
-Once the project cloned on your computer, all you need to do is open your terminal
-and execute these commands.
+Once the project cloned on your computer, all you need to do is open your terminal and execute these commands.
 
 `php bin/console doctrine:database:create`
+
+`php bin/console doctrine:schema:update --force`
 
 `php bin/console server:start`
 
