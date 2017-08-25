@@ -19,7 +19,6 @@ class EditUserCommand
         $this->userId = $userId;
         $this->firstname = $firstname;
         $this->lastname = $lastname;
-
     }
 
     public function getUserId()

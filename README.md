@@ -25,6 +25,8 @@ Once the project cloned on your computer, all you need to do is open your termin
 
 `php bin/console server:start`
 
+`php bin/console server:start 127.0.0.1:8000`
+
 Then in your web browser go on `localhost:8000/user`
 
 And there it is.

@@ -21,14 +21,14 @@ class EditUserCommandHandler
 
     public function handle($command)
     {
-         if(!$command instanceof EditUserCommand) {
-             throw new \Exception("Edit can only handle EditUserCommand");
-         }
+        if(!$command instanceof EditUserCommand) {
+            throw new \Exception("Edit can only handle EditUserCommand");
+        }
 
-         $user = $this->userRepository->findOneById(['id' => $command->getUserId()]);
-         $user->firstname = $command->getFirstname();
-         $user->lastname = $command->getLastname();
+        $user = $this->userRepository->findOneById(['id' => $command->getUserId()]);
+        $user->firstname = $command->getFirstname();
+        $user->lastname = $command->getLastname();
 
-         $this->userRepository->edit($user);
+        $this->userRepository->edit($user);
     }
 }
